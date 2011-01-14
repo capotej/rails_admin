@@ -28,7 +28,7 @@ module RailsAdmin
           end
 
           def associated_collection
-            associated_model_config.abstract_model.all.map do |object|
+            associated_model_config.abstract_model.limit(100).map do |object|
               [associated_model_config.bind(:object, object).list.object_label, object.id]
             end
           end
